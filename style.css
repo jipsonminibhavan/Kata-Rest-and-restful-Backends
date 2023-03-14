@@ -1,0 +1,204 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #f3f2ef;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*** custom variables ***/
+
+:root {
+  --c-bg-primary: #f3f2ef;
+  --c-border-primary: #ebebeb;
+
+  --c-card-bg-primary: #ffffff;
+  --c-card__action: #666666;
+  --c-card__title: #666666;
+
+  --c-button-font: #0966c2;
+  --c-button-border: #0966c2;
+  --c-button-bg: #ffffff;
+
+  --c-closing-button-bg: rgba(0, 0, 0, 0.5);
+  --c-closing-button-inner: #f1f1f1;
+}
+
+.heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-card {
+  border-radius: 0.7rem;
+  margin: 0.3rem 0.3rem;
+  background-color: var(--c-card-bg-primary);
+  border: 2px solid var(--c-border-primary);
+  padding: 0.1rem 0.7rem;
+  _width: 39rem;
+  width: 360px;
+}
+
+/*******************************************************/
+/*** responsive behaviour for different screen-sizes ***/
+
+@media screen and (min-width: 490px) {
+  .container-card {
+    width: 480px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .container-card {
+    width: 624px;
+  }
+}
+
+.container-card__heading {
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.container-card__action {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--c-card__action);
+  margin: 0.5rem 0;
+  text-decoration: none;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  _grid-template-columns: 1fr 1fr 1fr 1fr;
+  _grid-template-rows: 1fr 1fr;
+  padding: 0;
+  grid-gap: 0.5rem;
+  margin: 0 0 1rem 0;
+}
+
+/*** responsive behaviour for different screen-sizes ***/
+
+@media screen and (min-width: 490px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.extra-padding {
+  padding: 0.5rem 0;
+}
+
+/*** person-card styling ***/
+
+.person-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--c-border-primary);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 25%;
+  height: 14rem;
+  width: 9rem;
+}
+
+.person__picture {
+  border-radius: 50%;
+  width: 5.5rem;
+}
+
+.person__name {
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.person__title {
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin: 0;
+  color: var(--c-card__title);
+}
+
+.person__mutual-connections {
+  font-size: 0.6rem;
+  color: var(--c-card__title);
+  margin: 0;
+}
+
+.person__mutual-connections::before {
+  content: "\26AD";
+  font-size: 0.9rem;
+}
+
+.connect-button {
+  background-color: var(--c-button-bg);
+  border: 1px solid var(--c-button-border);
+  border-radius: 25px;
+  padding: 0.2rem 2.5rem;
+  font-size: 0.8rem;
+  color: var(--c-button-font);
+}
+
+.remove-button {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--c-closing-button-bg);
+  border-radius: 50px;
+  border: none;
+  transition: 5ms;
+}
+
+.remove-button::before,
+.remove-button::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: var(--c-closing-button-inner);
+  width: 1.5px;
+  left: 0.7rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+}
+
+.remove-button::before {
+  transform: rotate(45deg);
+}
+
+.remove-button::after {
+  transform: rotate(-45deg);
+}
+
+.remove-button:hover {
+  transform: scale(1.1);
+}
